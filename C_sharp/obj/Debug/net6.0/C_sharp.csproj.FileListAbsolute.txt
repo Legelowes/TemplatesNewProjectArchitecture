@@ -1,0 +1,5 @@
+D:\ServerStorage\Code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.csproj.AssemblyReference.cache
+D:\ServerStorage\Code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\ServerStorage\Code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.AssemblyInfoInputs.cache
+D:\ServerStorage\Code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.AssemblyInfo.cs
+D:\ServerStorage\Code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.csproj.CoreCompileInputs.cache
