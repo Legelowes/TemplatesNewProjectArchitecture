@@ -1,6 +1,6 @@
 # Framework for Client Server Assembly
 ---
-FLORANCE: A Developer's Framework - Client to Server to Client Networking For Server-Side Algorithms and Data Banks.
+FLORANCE: A Developer's Framework. 
 
 # Architecture
 ---
