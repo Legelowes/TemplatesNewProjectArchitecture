@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Execute : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORENCE_DEVELOPERS_TEMPLATE
+namespace FLORENCE_Server_ClientServerAssembly
 {
     public class Execute
     {
@@ -20,20 +20,28 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
         public Execute()
         {
+        // TIER CHARLIE (Top - 2) :: Control/Execute
+            Control_Execute control_Execute = new Control_Execute();
+            while(this.control_Execute == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control_Execute");//SIMULATION
+        }
+        ~Execute()
+        {
 
         }
-
   
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public void td_Concurreny(Dynamic_Xxx_Xxx obj)
+        public void td_Concurreny(Dynamic_Server_Backend obj)
         {
-            while(true)
+            //sbyte coreId = obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore();
+            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) != false) { } //wait.
+            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) == false) 
             {
-
+                // TODO>
             }
         }
-        public void td_IO_Loader_Simulation(Dynamic_Xxx_Xxx obj)
+        public void td_IO_Loader_Simulation(Dynamic_Server_Backend obj)
         {
             while(true)
             {
@@ -41,7 +49,11 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
             }
         }
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+        // TIER CHARLIE (Top - 2) :: Control/Execute
+            public Control_Execute getInstance_Control_Execute()
+            {
+                return this.control_Execute;
+            }
 
 
 //	PROTECTED ============================================================================================================================================
@@ -71,7 +83,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        // TIER CHARLIE (Top - 2) :: Control/Execute
+    private Control_Execute control_Execute = new Control_Execute();
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************

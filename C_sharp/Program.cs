@@ -1,7 +1,7 @@
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+﻿//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Program - Main : Framework - EXECUTE First : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORENCE_DEVELOPERS_TEMPLATE   
+namespace FLORENCE_Server_ClientServerAssembly   
 {
     class Program 
     {         
@@ -23,8 +23,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
         {
             System.Console.WriteLine(">> >> >> ENTERED : Program/Main");//SIMULATION
             System.Console.WriteLine("******************************************************************************************************************************************************");//SIMULATION
-            Program.frameworks = new Framework();
-            while(Program.frameworks == null) {} //wait for instance reference.
+            sbyte num_Comcurrent_Cores = 2;
+            Framework server_CLientServerAssembly = new Framework(num_Comcurrent_Cores);
             System.Console.WriteLine("DEFINTITION of Static Script COMPLETE");//SIMULATION            
             System.Console.WriteLine("INITALISATION of Static Instances COMPLETE");//SIMULATION
             System.Console.WriteLine("DECLARATION of Dynamic Architecture COMPLETE");//SIMULATION
@@ -33,15 +33,12 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
             System.Console.WriteLine("SIMULATION TESTBECH>START ****************************************************************************************************************************");//SIMULATION
             // TODO TESTBECH WORKLOAD
-            /*
+            /* 
             *
             */
             System.Console.WriteLine("SIMULATION TESTBECH>END ******************************************************************************************************************************");//SIMULATION
-            //while(true)
-            //{
-
-            //'}
-            Program.frameworks.stop_DynamicFramework_Server_Backend();
+            
+            Program.server_CLientServerAssembly.stop_DynamicFramework_Server_Backend();
             System.Console.WriteLine("<< << << EXITING : Program/Main");//SIMULATION
         }
 
@@ -85,7 +82,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        private static Framework frameworks = new Framework();
+        private static Framework server_CLientServerAssembly = new Framework(2);
+        private static sbyte num_Comcurrent_Cores = new sbyte();
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************

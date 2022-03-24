@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Terminal Wrapper : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORENCE_DEVELOPERS_TEMPLATE
+namespace FLORENCE_Server_ClientServerAssembly
 {
     public class Framework
     {
@@ -18,12 +18,12 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	CONSTRUCTOR ******************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public Framework()
+        public Framework(sbyte num_Comcurrent_Cores)
         {
-            this.framework_Static_XxxXxx = new Static_Xxx_Xxx();
-            while(this.framework_Static_XxxXxx == null) { }
-            this.framework_Dynamic_XxxXxx = new Dynamic_Xxx_Xxx(framework_Static_XxxXxx);
-            while(this.framework_Dynamic_XxxXxx == null) { }
+            this.framework_Static_Server_Backend = new Static_Server_Backend(num_Comcurrent_Cores);
+            while(this.framework_Static_Server_Backend == null) { }
+            this.framework_Dynamic_Server_Backend = new Dynamic_Server_Backend(this.framework_Static_Server_Backend, num_Comcurrent_Cores);
+            while(this.framework_Dynamic_Server_Backend == null) { }
         }
 
 
@@ -31,7 +31,7 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
         public void stop_DynamicFramework_Server_Backend()
         {
-            this.framework_Dynamic_XxxXxx = null;
+            this.framework_Dynamic_Server_Backend = null;
 
             System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
 			System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
@@ -77,24 +77,24 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        private Static_Xxx_Xxx framework_Static_XxxXxx;
-        private Dynamic_Xxx_Xxx framework_Dynamic_XxxXxx;
+        private Static_Server_Backend framework_Static_Server_Backend;
+        private Dynamic_Server_Backend framework_Dynamic_Server_Backend;
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------Framework
-        public Dynamic_Xxx_Xxx getDynamicFramework()
+        public Dynamic_Server_Backend getDynamicFramework()
         {
-            return this.framework_Dynamic_XxxXxx;
+            return this.framework_Dynamic_Server_Backend;
         }
-        public Static_Xxx_Xxx getStaticFramework()
+        public Static_Server_Backend getStaticFramework()
         {
-            return this.framework_Static_XxxXxx;
+            return this.framework_Static_Server_Backend;
         }
           
     }
-    public class Static_Xxx_Xxx
+    public class Static_Server_Backend
     {
 //	PUBLIC -==============================================================================================================================================
 //  ======================================================================================================================================================
@@ -109,130 +109,166 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	CONSTRUCTOR ******************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public Static_Xxx_Xxx()
+        public Static_Server_Backend(sbyte num_Comcurrent_Cores)
         {
 // INSTANCE(S)
-// TIER ALPHA (Top) :: Static_Xxx_Xxx
+// TIER ALPHA (Top) :: Static_Server_Backend
              //this;
 	
-    // TIER BRAVO (Top - 1) :: Algorithms	
-            this.static_Algorithms = new FLORENCE_DEVELOPERS_TEMPLATE.Algorithms();
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Algorithms	
+            this.algorithms = new FLORENCE_Server_ClientServerAssembly.Algorithms(num_Comcurrent_Cores);
+            while(this.algorithms == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/algorithms");//SIMULATION
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Algorithms
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms//Concurrent
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/Concurrent
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms/ListenRespond
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/ListenRespond
 
-    // TIER BRAVO (Top - 1) :: Control
-    		this.static_Control = new FLORENCE_DEVELOPERS_TEMPLATE.Control();
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            this.static_Control_Execute = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Execute();
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            this.static_Control_Algorithms = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Algorithms();
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            this.static_Control_Data = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Data();
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-            this.static_Control_Data_Input = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Data_Input();
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-            this.static_Control_Data_Output = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Data_Output();
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-            this.static_Control_Data_Reconnaissance = new FLORENCE_DEVELOPERS_TEMPLATE.Control_Data_Reconnaissance();
-    
-    // TIER BRAVO (Top - 1) :: Data
-            this.static_Data = new FLORENCE_DEVELOPERS_TEMPLATE.Data();
-        // TIER CHARLIE (Top - 2) :: Data/Input
-            this.static_Data_Input = new FLORENCE_DEVELOPERS_TEMPLATE.Data_Input();
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-			this.static_Data_Output = new FLORENCE_DEVELOPERS_TEMPLATE.Data_Output();
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            this.static_Data_Reconnaissance = new FLORENCE_DEVELOPERS_TEMPLATE.Data_Reconnaissance();
-    
-    // TIER BRAVO (Top - 1) :: Execute	
-            this.static_Execute = new FLORENCE_DEVELOPERS_TEMPLATE.Execute();
-    
-    // TIER BRAVO (Top - 1) :: Wrapper
-            this.static_Wrapper = new FLORENCE_DEVELOPERS_TEMPLATE.TerminalWrapper();
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Control
+    		this.control = new FLORENCE_Server_ClientServerAssembly.Control();
+            while(this.control == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control");//SIMULATION
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Data
+            this.data = new FLORENCE_Server_ClientServerAssembly.Data(num_Comcurrent_Cores);
+            while(this.data == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/data");//SIMULATION
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Data
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Input
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Ouput
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Reconnaissance
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Reconnasissance
+
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Execute
+            this.execute = new FLORENCE_Server_ClientServerAssembly.Execute();
+            while(this.execute == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/execute");//SIMULATION
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Execute
+
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Wrapper
+            this.wrapper = new FLORENCE_Server_ClientServerAssembly.TerminalWrapper();
+            while(this.wrapper == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/wrapper");//SIMULATION
     
         }
-        ~Static_Xxx_Xxx()
+        ~Static_Server_Backend()
         {
 
         }
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        public void addThisInstanceToArray(Object value)
+        {
+            Object[] temp_Array = new Object[instanceArray.Length+1];
+            for(sbyte index = 0; index < instanceArray.Length; index++)
+            {
+                temp_Array[index] = instanceArray[index];
+            }
+            temp_Array[instanceArray.Length+1] = value;
+            instanceArray = temp_Array;
+        }
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 // INSTANCE(S)
-	// TIER BRAVO (Top - 1) :: Algorithms	
-        public Algorithms getStatic_Algorithms()
+// TIER ALPHA (Top) :: Static_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Algorithms	
+        public Algorithms getInstance_Algorithms()
 		{
-			return this.static_Algorithms;
+			return this.algorithms;
+		}            
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Algorithms
+        public Control_Algorithms getInstance_Control_Algorithms()
+        {
+            return this.getInstance_Algorithms().getInstance_Control_Algorithms();
+        }
+    // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms//Concurrent
+        public Algorithms_Concurrent getInstance_Algorithms_Concurrent(sbyte index)
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_Concurrent(index);
+        }
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/Concurrent
+        public Control_Algorithms_Concurrent getInstance_Control_Algorithms_Concurrent(sbyte index)
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_Concurrent(index).getInstance_Control_Algorithms_Concurrent(index);
+        }
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms/ListenRespond
+        public Algorithms_ListenRespond getInstance_Algorithms_ListenRespond()
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_ListenRespond();
+        }
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/ListenRespond
+        public Control_Algorithms_ListenRespond getInstance_Control_Algorithms_ListenRespond()
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_ListenRespond().getInstance_Control_Algorithms_ListenRespond();
+        }
+
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Control
+    	public Control getInstance_Control()
+		{
+			return this.control;
+		}	
+       
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Data
+        public Data getInstance_Data()
+		{
+			return this.data;
+		}            
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Data
+        public Control_Data getInstance_Control_Data()
+        {
+            return this.getInstance_Data().getInstance_Control_Data();
+        }
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Input
+        public Data_Input getInstance_Data_Input()
+        {
+            return this.getInstance_Data().getInstance_Data_Input();
+        }
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Input
+        public Control_Data_Input getInstance_Control_Data_Input()
+        {
+            return this.getInstance_Data().getInstance_Data_Input().getInstance_Control_Data_Input();
+        }
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Ouput
+        public Data_Output getInstance_Data_Output()
+        {
+            return this.getInstance_Data().getInstance_Data_Output();
+        }
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Output
+        public Control_Data_Output getInstance_Control_Data_Output()
+        {
+            return this.getInstance_Data().getInstance_Data_Output().getInstance_Control_Data_Output();
+        }
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Reconnaissance
+        public Data_Reconnaissance getInstance_Data_Reconnaissance()
+        {
+            return this.getInstance_Data().getInstance_Data_Reconnaissance();
+        }
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Reconnaissance
+        public Control_Data_Reconnaissance getInstance_Control_Data_Reconnaissance()
+        {
+            return this.getInstance_Data().getInstance_Data_Reconnaissance().getInstance_Control_Data_Reconnaissance();
+        }
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Execute
+        public Execute getInstance_Execute()
+		{
+			return this.execute;
+		}
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Execute
+        public Control_Execute getInstance_Control_Execute()
+        {
+            return this.getInstance_Execute().getInstance_Control_Execute();
+        }
+
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Wrapper
+        public TerminalWrapper getInstance_TerminalWrapper()
+		{
+			return this.wrapper;
 		}
 
-    // TIER BRAVO (Top - 1) :: Control
-    	public Control getStatic_Control()
-		{
-			return this.static_Control;
-		}
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            public Control_Execute getStatic_Control_Execute()
-            {
-                return this.static_Control_Execute;
-            }
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            public Control_Algorithms getStatic_Control_Algorithms()
-            {
-                return this.static_Control_Algorithms;
-            }
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            public Control_Data getStatic_Control_Data()
-            {
-                return this.static_Control_Data;
-            }
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-                public Control_Data_Input getStatic_Control_Data_Input()
-                {
-                    return this.static_Control_Data_Input;
-                }
-            // TIER DELTA (Top - 3) :: Control/Data/Output    
-                public Control_Data_Output getStatic_Control_Data_Output()
-                {
-                    return this.static_Control_Data_Output;
-                }
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance    
-                public Control_Data_Reconnaissance getStatic_Control_Data_Reconnaissance()
-                {
-                    return this.static_Control_Data_Reconnaissance;
-                }
-
-    // TIER BRAVO (Top - 1) :: Data
-        public Data getStatic_Data()
-		{
-			return this.static_Data;
-		}
-        // TIER CHARLIE (Top - 2) :: Data/Input
-            public Data_Input getStatic_Data_Input()
-		    {
-			    return this.static_Data_Input;
-		    }
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-            public Data_Output getStatic_Data_Output()
-		    {
-			    return this.static_Data_Output;
-		    }
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            public Data_Reconnaissance getStatic_Data_Reconnaissance()
-		    {
-			    return this.static_Data_Reconnaissance;
-		    }
-
-    // TIER BRAVO (Top - 1) :: Execute	
-		public Execute getStatic_Execute()
-		{
-			return this.static_Execute;
-		}
-
-    // TIER BRAVO (Top - 1) :: Wrapper
-        public TerminalWrapper getStatic_TerminalWrapper()
-		{
-			return this.static_Wrapper;
-		}
 
 
 //	PROTECTED ============================================================================================================================================
@@ -263,38 +299,38 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 // INSTANCE(S)
-    // TIER BRAVO (Top - 1) :: Algorithms	
-        private Algorithms static_Algorithms;
-                
-    // TIER BRAVO (Top - 1) :: Control
-    	private Control static_Control;
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            private Control_Execute static_Control_Execute;
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            private Control_Algorithms static_Control_Algorithms;
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            private Control_Data static_Control_Data;
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-                private Control_Data_Input static_Control_Data_Input;
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-                private Control_Data_Output static_Control_Data_Output;
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-                private Control_Data_Reconnaissance static_Control_Data_Reconnaissance;
+        private Object[] instanceArray = new Object[18];
 
-    // TIER BRAVO (Top - 1) :: Data
-        private Data static_Data;
-        // TIER CHARLIE (Top - 2) :: Data/Input
-            private Data_Input static_Data_Input;
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-		    private Data_Output static_Data_Output;
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            private Data_Reconnaissance static_Data_Reconnaissance;
+// TIER ALPHA (Top) :: Static_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Algorithms	
+        private Algorithms algorithms;    
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Algorithms
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms//Concurrent
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/Concurrent
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Algorithms/ListenRespond
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Algorithms/ListenRespond
 
-	// TIER BRAVO (Top - 1) :: Execute	
-        private Execute static_Execute;
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Control
+    	private Control control;	
+       
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Data
+        private Data data;    
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Data
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Input
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Ouput
+            // TIER DELTA (Top - 3) :: Static_Server_Backend/Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Data/Reconnaissance
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Reconniassance
 
-    // TIER BRAVO (Top - 1) :: Wrapper
-        private TerminalWrapper static_Wrapper;
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Execute
+        private Execute execute;
+        // TIER CHARLIE (Top - 2) :: Static_Server_Backend/Control/Execute
+
+    // TIER BRAVO (Top - 1) :: Static_Server_Backend/Wrapper
+        private TerminalWrapper wrapper;
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
@@ -302,7 +338,7 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 
     }
-    public class Dynamic_Xxx_Xxx
+    public class Dynamic_Server_Backend 
     {
 //	PUBLIC -==============================================================================================================================================
 //  ======================================================================================================================================================
@@ -317,51 +353,46 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	CONSTRUCTOR ******************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public Dynamic_Xxx_Xxx(Static_Xxx_Xxx static_obj)
+        public Dynamic_Server_Backend(Static_Server_Backend static_obj, sbyte num_Comcurrent_Cores)
         {
 // INSTANCE(S)
-// TIER ALPHA (Top) :: Static_Xxx_Xxx
-            //Dynamic_Xxx_Xxx framework_Dynamic_XxxXxx;
+// TIER ALPHA (Top) :: Dynamic_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Algorithms	
+            this.algorithms = static_obj.getInstance_Algorithms();
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Algorithms
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms//Concurrent
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/Concurrent
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms/ListenRespond
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/ListenRespond
 
-    // TIER BRAVO (Top - 1) :: Algorithms	
-            this.algorithms = static_obj.getStatic_Algorithms();
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Control
+        	this.control = static_obj.getInstance_Control();
+       
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Data
+            this.data = static_obj.getInstance_Data();
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Data
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Input
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Ouput
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Reconnaissance
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Reconniassance
 
-    // TIER BRAVO (Top - 1) :: Control
-    	    this.control = static_obj.getStatic_Control();
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            this.control_Execute = static_obj.getStatic_Control_Execute();        
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            this.control_Algorithms = static_obj.getStatic_Control_Algorithms();    
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            this.control_Data = static_obj.getStatic_Control_Data();        
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-            this.control_Data_Input = static_obj.getStatic_Control_Data_Input();        
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-            this.control_Data_Output = static_obj.getStatic_Control_Data_Output();        
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-            this.control_Data_Reconniassance = static_obj.getStatic_Control_Data_Reconnaissance();
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Execute
+            this.execute = static_obj.getInstance_Execute();
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Execute
 
-    // TIER BRAVO (Top - 1) :: Data
-            this.data = static_obj.getStatic_Data();
-        // TIER CHARLIE (Top - 2) :: Data/Input
-                this.data_Input = static_obj.getStatic_Data_Input();
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-		        this.data_Output = static_obj.getStatic_Data_Output();
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-                this.data_Reconnaissance = static_obj.getStatic_Data_Reconnaissance();
-
-	// TIER BRAVO (Top - 1) :: Execute	
-            this.execute = static_obj.getStatic_Execute();
-
-    // TIER BRAVO (Top - 1) :: Wrapper
-            this.terminalWrapper = static_obj.getStatic_TerminalWrapper();
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Wrapper
+            this.wrapper = static_obj.getInstance_TerminalWrapper();
 		
 // HREADED CORES
-			this.td_IO_Loader_Simulation = new Thread(()=>static_obj.getStatic_Execute().td_IO_Loader_Simulation(this));
-			this.td_Concurreny_0 = new Thread(()=>static_obj.getStatic_Execute().td_Concurreny(this));
-			this.td_Concurreny_1 = new Thread(()=>static_obj.getStatic_Execute().td_Concurreny(this));
+			this.td_IO_Loader_Simulation = new Thread(()=>static_obj.getInstance_Execute().td_IO_Loader_Simulation(this));
+			this.td_Concurreny_0 = new Thread(()=>static_obj.getInstance_Execute().td_Concurreny(this));
+			this.td_Concurreny_1 = new Thread(()=>static_obj.getInstance_Execute().td_Concurreny(this));
 
-            checkList_PriorToConcurrentLaunch(static_obj, this);
+            //while (checkList_PriorToConcurrentLaunch(static_obj, this, num_Comcurrent_Cores) == false) {}
 
 			System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
 			System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
@@ -382,43 +413,39 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
             this.td_Concurreny_1.Start();
 
 		}
-        ~Dynamic_Xxx_Xxx()
+        ~Dynamic_Server_Backend()
         {
 // INSTANCE(S)
-// TIER ALPHA (Top) :: Static_Xxx_Xxx
-            //Dynamic_Xxx_Xxx framework_Dynamic_XxxXxx;
-
-    // TIER BRAVO (Top - 1) :: Algorithms	
+// TIER ALPHA (Top) :: Dynamic_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Algorithms	
             this.algorithms = null;
-    // TIER BRAVO (Top - 1) :: Control
-    	    this.control = null;
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            this.control_Execute = null;
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            this.control_Algorithms = null;
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            this.control_Data = null;
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-            this.control_Data_Input = null;
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-            this.control_Data_Output = null;
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-            this.control_Data_Reconniassance = null;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Algorithms
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms//Concurrent
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/Concurrent
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms/ListenRespond
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/ListenRespond
 
-    // TIER BRAVO (Top - 1) :: Data
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Control
+        	this.control = null;
+       
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Data
             this.data = null;
-        // TIER CHARLIE (Top - 2) :: Data/Input
-                this.data_Input = null;
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-		        this.data_Output = null;
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-                this.data_Reconnaissance = null;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Data
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Input
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Ouput
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Reconnaissance
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Reconniassance
 
-	// TIER BRAVO (Top - 1) :: Execute	
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Execute
             this.execute = null;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Execute
 
-    // TIER BRAVO (Top - 1) :: Wrapper
-            this.terminalWrapper = null;
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Wrapper
+            this.wrapper = null;
 		
 // HREADED CORES
 			this.td_IO_Loader_Simulation = null;
@@ -444,79 +471,102 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 // INSTANCE(S)
-    // TIER BRAVO (Top - 1) :: Algorithms	
-        private Algorithms getDynamic_Algorithms()
+// TIER ALPHA (Top) :: Dynamic_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Algorithms	
+        public Algorithms getInstance_Algorithms()
         {
             return this.algorithms;
         }
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Algorithms
+        public Control_Algorithms getInstance_Control_Algorithms()
+        {
+            return this.getInstance_Algorithms().getInstance_Control_Algorithms();
+        }
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms/Concurrent
+        public Algorithms_Concurrent getInstance_Algorithms_Concurrent(sbyte index)
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_Concurrent(index);
+        }
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/Concurrent
+        public Control_Algorithms_Concurrent getInstance_Control_Algorithms_Concurrent(sbyte index)
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_Concurrent(index).getInstance_Control_Algorithms_Concurrent(index);
+        }
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms/ListenRespond
+        public Algorithms_ListenRespond getInstance_Algorithms_ListenRespnd()
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_ListenRespond();
+        }
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/ListenRespond
+        public Control_Algorithms_ListenRespond getInstance_Control_Algorithms_ListenRespond()
+        {
+            return this.getInstance_Algorithms().getInstance_Algorithms_ListenRespond().getInstance_Control_Algorithms_ListenRespond();
+        }
 
-    // TIER BRAVO (Top - 1) :: Control
-        private Control getDynamic_Control()
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Control
+        public Control getInstance_Control()
         {
             return this.control;
         }
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            private Control_Execute getDynamic_Control_Execute()
-            {
-                return this.control_Execute;
-            }        
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            private Control_Algorithms getDynamic_Control_Algorithms()
-            {
-                return this.control_Algorithms;
-            } 
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            private Control_Data getDynamic_Control_Data()
-            {
-                return this.control_Data;
-            }
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-                private Control_Data_Input getDynamic_Control_Data_Input()
-                {
-                    return this.control_Data_Input;
-                }        
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-                private Control_Data_Output getDynamic_Control_Data_Output()
-                {
-                    return this.control_Data_Output;
-                }        
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-                private Control_Data_Reconnaissance getDynamic_Control_Data_Reconniassance()
-                {
-                    return this.control_Data_Reconniassance;
-                }
-
-    // TIER BRAVO (Top - 1) :: Data
-        private Data getDynamic_Data()
+       
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Data
+        public Data getInstance_Data()
         {
             return this.data;
         }
-        // TIER CHARLIE (Top - 2) :: Data/Input
-            private Data_Input getDynamic_Data_Input()
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Data
+        public Control_Data getInstance_Control_Data()
         {
-            return this.data_Input;
+            return this.getInstance_Data().getInstance_Control_Data();
         }
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-		    private Data_Output getDynamic_Data_Output()
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Input
+        public Data_Input getInstance_Data_Input()
         {
-            return this.data_Output;
+            return this.getInstance_Data().getInstance_Data_Input();
         }
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            private Data_Reconnaissance getDynamic_Data_Reconnaissance()
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Input
+        public Control_Data_Input getInstance_Control_Data_Input()
         {
-            return this.data_Reconnaissance;
+            return this.getInstance_Data().getInstance_Data_Input().getInstance_Control_Data_Input();
+        }
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Ouput
+        public Data_Output getInstance_Data_Output()
+        {
+            return this.getInstance_Data().getInstance_Data_Output();
+        }
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Output
+        public Control_Data_Output getInstance_Control_Data_Output()
+        {
+            return this.getInstance_Data().getInstance_Data_Output().getInstance_Control_Data_Output();
+        }
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Reconnaissance
+        public Data_Reconnaissance getInstance_Data_Reconnaissance()
+        {
+            return this.getInstance_Data().getInstance_Data_Reconnaissance();
+        }
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Reconnaissance
+        public Control_Data_Reconnaissance getInstance_Control_Data_Reconniassance()
+        {
+            return this.getInstance_Data().getInstance_Data_Reconnaissance().getInstance_Control_Data_Reconnaissance();
         }
 
-	// TIER BRAVO (Top - 1) :: Execute	
-        private Execute getDynamic_Execute()
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Execute
+        public Execute getInstance_Execute()
         {
             return this.execute;
         }
-
-    // TIER BRAVO (Top - 1) :: Wrapper
-        private TerminalWrapper getDynamic_TerminalWrapper()
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Execute
+        public Control_Execute getInstance_Control_Execute()
         {
-            return this.terminalWrapper;
+            return this.getInstance_Execute().getInstance_Control_Execute();
+        } 
+
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Wrapper
+        public TerminalWrapper getInstance_TerminalWrapper()
+        {
+            return this.wrapper;
         }
 
 
@@ -548,39 +598,36 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 // INSTANCE(S)
-    // TIER BRAVO (Top - 1) :: Algorithms	
-        private Algorithms algorithms;
+// TIER ALPHA (Top) :: Dynamic_Server_Backend
+             //this;
+	
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Algorithms	
+            private Algorithms algorithms;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Algorithms
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms//Concurrent
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/Concurrent
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Algorithms/ListenRespond
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Algorithms/ListenRespond
 
-    // TIER BRAVO (Top - 1) :: Control
-        private Control control;
-        // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            private Control_Algorithms control_Algorithms;
-        // TIER CHARLIE (Top - 2) :: Control/Data
-            private Control_Data control_Data;        
-            // TIER DELTA (Top - 3) :: Control/Data/Input
-                private Control_Data_Input control_Data_Input;        
-            // TIER DELTA (Top - 3) :: Control/Data/Output
-                private Control_Data_Output control_Data_Output;        
-            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
-                private Control_Data_Reconnaissance control_Data_Reconniassance;
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-            private Control_Execute control_Execute;        
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Control
+        	private Control control;
+       
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Data
+            private Data data;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Data
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Input
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Ouput
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Data/Reconnaissance
+            // TIER DELTA (Top - 3) :: Dynamic_Server_Backend/Control/Data/Reconniassance
 
-    // TIER BRAVO (Top - 1) :: Data
-        private Data data;
-        // TIER CHARLIE (Top - 2) :: Data/Input
-            private Data_Input data_Input;
-        // TIER CHARLIE (Top - 2) :: Data/Ouput
-		    private Data_Output data_Output;
-        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            private Data_Reconnaissance data_Reconnaissance;
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Execute
+            private Execute execute;
+        // TIER CHARLIE (Top - 2) :: Dynamic_Server_Backend/Control/Execute
 
-	// TIER BRAVO (Top - 1) :: Execute	
-        private Execute execute;
-
-    // TIER BRAVO (Top - 1) :: Wrapper
-        private TerminalWrapper terminalWrapper;
-
+    // TIER BRAVO (Top - 1) :: Dynamic_Server_Backend/Wrapper
+            private TerminalWrapper wrapper;
 
 // THREADED CORES
 	    private System.Threading.Thread td_IO_Loader_Simulation;
@@ -590,90 +637,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        private bool checkList_PriorToConcurrentLaunch(Static_Xxx_Xxx obj_Static, Dynamic_Xxx_Xxx obj_Dynamic)
-        {
-            bool checkBit_PASS = false;
-            if(check_Static_ColdStart(obj_Static) == true){
-                if(check_Dynamic_ColdStart(obj_Dynamic) == true){
-                    checkBit_PASS = true;
-                }
-            }
-            return checkBit_PASS;
-        }
-        private bool check_Dynamic_ColdStart(Dynamic_Xxx_Xxx obj_Dynamic)
-        {
-            bool checkBit_PASS = false;
-            if(obj_Dynamic != null){
-                if(obj_Dynamic.getDynamic_Algorithms() != null){
-                    if(obj_Dynamic.getDynamic_Control() != null){
-                        if(obj_Dynamic.getDynamic_Control_Algorithms() != null){
-                            if(obj_Dynamic.getDynamic_Control_Data() != null){
-                                if(obj_Dynamic.getDynamic_Control_Data_Input() != null){
-                                    if(obj_Dynamic.getDynamic_Control_Data_Output() != null){
-                                        if(obj_Dynamic.getDynamic_Control_Data_Reconniassance() != null){
-                                            if(obj_Dynamic.getDynamic_Control_Execute() != null){
-                                                if(obj_Dynamic.getDynamic_Data() != null){
-                                                    if(obj_Dynamic.getDynamic_Data_Input() != null){
-                                                        if(obj_Dynamic.getDynamic_Data_Output() != null){
-                                                            if(obj_Dynamic.getDynamic_Data_Reconnaissance() != null){
-                                                                if(obj_Dynamic.getDynamic_Execute() != null){
-                                                                    if(obj_Dynamic.getDynamic_TerminalWrapper() != null){
-                                                                        checkBit_PASS = true;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return checkBit_PASS;
-        }
-        private bool check_Static_ColdStart(Static_Xxx_Xxx obj_Static)
-        {
-            bool checkBit_PASS = false;
-            if(obj_Static != null){
-                if(obj_Static.getStatic_Algorithms() != null){
-                    if(obj_Static.getStatic_Control() != null){
-                        if(obj_Static.getStatic_Control_Algorithms() != null){
-                            if(obj_Static.getStatic_Control_Data() != null){
-                                if(obj_Static.getStatic_Control_Data_Input() != null){
-                                    if(obj_Static.getStatic_Control_Data_Output() != null){
-                                        if(obj_Static.getStatic_Control_Data_Reconnaissance() != null){
-                                            if(obj_Static.getStatic_Control_Execute() != null){
-                                                if(obj_Static.getStatic_Data() != null){
-                                                    if(obj_Static.getStatic_Data_Input() != null){
-                                                        if(obj_Static.getStatic_Data_Output() != null){
-                                                            if(obj_Static.getStatic_Data_Reconnaissance() != null){
-                                                                if(obj_Static.getStatic_Execute() != null){
-                                                                    if(obj_Static.getStatic_TerminalWrapper() != null){
-                                                                        checkBit_PASS = true;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return checkBit_PASS;
-        }
-//	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 
+//	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 
     }
 }

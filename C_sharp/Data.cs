@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Data : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORENCE_DEVELOPERS_TEMPLATE
+namespace FLORENCE_Server_ClientServerAssembly
 {
     public class Data
     {
@@ -16,11 +16,66 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
 
 
+//	CONSTRUCTOR ******************************************************************************************************************************************
+// 	******************************************************************************************************************************************************
+        public Data(sbyte num_Comcurrent_Cores)
+        {
+        // TIER CHARLIE (Top - 2) :: Control/Data
+            this.control_Data = new FLORENCE_Server_ClientServerAssembly.Control_Data();
+            while(this.control_Data == null) { } //wait.
+            while(this.control_Data == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control_Data");//SIMULATION
+        // TIER CHARLIE (Top - 2) :: Data/Input
+            this.data_Input = new FLORENCE_Server_ClientServerAssembly.Data_Input();
+            while(this.data_Input == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/data_Input");//SIMULATION
+            // TIER DELTA (Top - 3) :: Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Data/Ouput
+		    this.data_Output = new FLORENCE_Server_ClientServerAssembly.Data_Output();
+            while(this.data_Output == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/data_Output");//SIMULATION
+
+            // TIER DELTA (Top - 3) :: Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
+            this.data_Reconnaissance = new FLORENCE_Server_ClientServerAssembly.Data_Reconnaissance();
+            while(this.data_Reconnaissance == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/data_Reconnaissance");//SIMULATION
+
+            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
+        }
+        ~Data()
+        {
+
+        }
+
+
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+        // TIER CHARLIE (Top - 2) :: Control/Data
+            public Control_Data getInstance_Control_Data()
+            {
+                return this.control_Data;
+            }
+        // TIER CHARLIE (Top - 2) :: Data/Input
+            public Data_Input getInstance_Data_Input()
+		    {
+			    return this.data_Input;
+		    }
+            // TIER DELTA (Top - 3) :: Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Data/Ouput
+            public Data_Output getInstance_Data_Output()
+		    {
+			    return this.data_Output;
+		    }
+            // TIER DELTA (Top - 3) :: Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
+            public Data_Reconnaissance getInstance_Data_Reconnaissance()
+		    {
+			    return this.data_Reconnaissance;
+		    }
+            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
 
 
 //	PROTECTED ============================================================================================================================================
@@ -50,6 +105,17 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
+        // TIER CHARLIE (Top - 2) :: Control/Data
+            private Control_Data control_Data = new Control_Data();
+        // TIER CHARLIE (Top - 2) :: Data/Input
+            private Data_Input data_Input;
+            // TIER DELTA (Top - 3) :: Control/Data/Input
+        // TIER CHARLIE (Top - 2) :: Data/Ouput
+		    private Data_Output data_Output;
+            // TIER DELTA (Top - 3) :: Control/Data/Output
+        // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
+            private Data_Reconnaissance data_Reconnaissance;
+            // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
 
 
 //	METHODS **********************************************************************************************************************************************
@@ -72,11 +138,31 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
 
 
+//	CONSTRUCTOR ******************************************************************************************************************************************
+// 	******************************************************************************************************************************************************
+        public Data_Input()
+        {
+            // TIER DELTA (Top - 3) :: Control/Data/Input
+            this.control_Data_Input = new FLORENCE_Server_ClientServerAssembly.Control_Data_Input();
+            while(this.control_Data_Input == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control_Data_Input");//SIMULATION
+
+        }
+        ~Data_Input()
+        {
+
+        }
+
+
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+       // TIER DELTA (Top - 3) :: Control/Data/Input
+            public Control_Data_Input getInstance_Control_Data_Input()
+            {
+                return this.control_Data_Input;
+            }
 
 
 //	PROTECTED ============================================================================================================================================
@@ -106,7 +192,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        // TIER DELTA (Top - 3) :: Control/Data/Input
+            private Control_Data_Input control_Data_Input = new Control_Data_Input();
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
@@ -128,11 +215,30 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
 
 
+//	CONSTRUCTOR ******************************************************************************************************************************************
+// 	******************************************************************************************************************************************************
+        public Data_Output()
+        {
+            // TIER DELTA (Top - 3) :: Control/Data/Output
+            this.control_Data_Output = new FLORENCE_Server_ClientServerAssembly.Control_Data_Output();
+            while(this.control_Data_Output == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control_Data_Output");//SIMULATION
+        }
+        ~Data_Output()
+        {
+
+        }
+
+
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+        // TIER DELTA (Top - 3) :: Control/Data/Output    
+            public Control_Data_Output getInstance_Control_Data_Output()
+            {
+                return this.control_Data_Output;
+            }
 
 
 //	PROTECTED ============================================================================================================================================
@@ -162,7 +268,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        // TIER DELTA (Top - 3) :: Control/Data/Output
+            private Control_Data_Output control_Data_Output = new Control_Data_Output();
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
@@ -184,11 +291,30 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 // 	******************************************************************************************************************************************************
 
 
+//	CONSTRUCTOR ******************************************************************************************************************************************
+// 	******************************************************************************************************************************************************
+        public Data_Reconnaissance()
+        {
+            // TIER DELTA (Top - 3) :: Control/Data/Input
+            this.control_Data_Reconnaissance = new FLORENCE_Server_ClientServerAssembly.Control_Data_Reconnaissance();
+            while(this.control_Data_Reconnaissance == null) { } //wait.
+            System.Console.WriteLine(">> >> >> Object CREATED : Static_Server_Backend/control_Data_Reconnaissance");//SIMULATION
+        }
+        ~Data_Reconnaissance()
+        {
+
+        }
+
+
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+        // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance    
+            public Control_Data_Reconnaissance getInstance_Control_Data_Reconnaissance()
+            {
+                return this.control_Data_Reconnaissance;
+            }
 
 
 //	PROTECTED ============================================================================================================================================
@@ -218,7 +344,8 @@ namespace FLORENCE_DEVELOPERS_TEMPLATE
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        // TIER DELTA (Top - 3) :: Control/Data/Reconnaissance
+            private Control_Data_Reconnaissance control_Data_Reconnaissance = new Control_Data_Reconnaissance();
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
