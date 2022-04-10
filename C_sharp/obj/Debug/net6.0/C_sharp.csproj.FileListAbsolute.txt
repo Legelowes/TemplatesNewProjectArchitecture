@@ -1,0 +1,15 @@
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\bin\Debug\net6.0\C_sharp.exe
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\bin\Debug\net6.0\C_sharp.deps.json
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\bin\Debug\net6.0\C_sharp.runtimeconfig.json
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\bin\Debug\net6.0\C_sharp.dll
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\bin\Debug\net6.0\C_sharp.pdb
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.csproj.AssemblyReference.cache
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.AssemblyInfoInputs.cache
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.AssemblyInfo.cs
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.csproj.CoreCompileInputs.cache
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.dll
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\refint\C_sharp.dll
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.pdb
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\C_sharp.genruntimeconfig.cache
+C:\_code\TemplatesNewProjectArchitecture\C_sharp\obj\Debug\net6.0\ref\C_sharp.dll
