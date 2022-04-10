@@ -69,7 +69,7 @@ namespace FLORANCE_DevelopersTemplete
             {
                 this.data_Output_Concurrent_OutputRefferenceOfCore[index] = new FLORANCE_DevelopersTemplete.Data_Output();
                 while(this.data_Output_Concurrent_OutputRefferenceOfCore[index] == null) { } //wait.
-                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_Concurrent_InputRefferenceOfCore[" + index + "]");//SIMULATION
+                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_Concurrent_OutputRefferenceOfCore[" + index + "]");//SIMULATION
             }
 
             // TIER DELTA (Top - 3) :: Data/Output/PraiseBuffer

@@ -445,13 +445,12 @@ namespace FLORANCE_DevelopersTemplete
             this.wrapper = static_obj.getInstance_TerminalWrapper();
 		
 // HREADED CORES
-			this.td_IO_Loader_Simulation = new System.Threading.Thread(()=>static_obj.getInstance_Execute().td_IO_Loader_Simulation(this));
-            this.td_Concurreny = new System.Threading.Thread[num_implemented_cores-1];
-            for(int index = 0; index < num_implemented_cores-1; index++) 
+            this.thread_WithCoreId = new System.Threading.Thread[num_implemented_cores];
+			for(int coreId = 0; coreId < num_implemented_cores; coreId++) 
             {
-                this.td_Concurreny[index] = new System.Threading.Thread(()=>static_obj.getInstance_Execute().td_Concurreny(this));
+                if(coreId == 0) this.thread_WithCoreId[coreId] = new System.Threading.Thread(()=>static_obj.getInstance_Execute().thread_IO_Loader_Simulation(this, coreId));
+                else if(coreId > 0) this.thread_WithCoreId[coreId] = new System.Threading.Thread(()=>static_obj.getInstance_Execute().thread_Concurreny(this, coreId));
             }
-
 			System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
 			System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
 			System.Console.WriteLine("      /   \\   (_\\  /_)    /   \\ ");//SIMULATION
@@ -466,11 +465,11 @@ namespace FLORANCE_DevelopersTemplete
 			System.Console.WriteLine("|/                //               \\| ");//SIMULATION
 			System.Console.WriteLine("`                 V                 '");//SIMULATION
 
-            this.td_IO_Loader_Simulation.Start();
-            for(int index = 0; index < num_implemented_cores-1; index++) 
+            for(int index = 0; index < num_implemented_cores; index++) 
             {
-                this.td_Concurreny[index].Start();
+                this.thread_WithCoreId[index].Start();
             }
+
 		}
         ~Dynamic_XxxxxxXxxxxxx()
         {
@@ -507,10 +506,9 @@ namespace FLORANCE_DevelopersTemplete
             this.wrapper = null;
 		
 // HREADED CORES
-			this.td_IO_Loader_Simulation = null;
-            for(int index = 0; index < this.td_Concurreny.Length; index++) 
+            for(int index = 0; index < this.thread_WithCoreId.Length; index++) 
             {
-                this.td_Concurreny[index] = null;
+                this.thread_WithCoreId[index] = null;
             }
 
             System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
@@ -689,8 +687,7 @@ namespace FLORANCE_DevelopersTemplete
             private TerminalWrapper wrapper;
 
 // THREADED CORES
-	    private System.Threading.Thread td_IO_Loader_Simulation;
-	    private System.Threading.Thread[] td_Concurreny;
+	    private System.Threading.Thread[] thread_WithCoreId;
 
 
 //	METHODS **********************************************************************************************************************************************

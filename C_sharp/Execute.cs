@@ -21,7 +21,7 @@ namespace FLORANCE_DevelopersTemplete
         public Execute()
         {
         // TIER CHARLIE (Top - 2) :: Control/Execute
-            Control_Execute control_Execute = new Control_Execute();
+            this.control_Execute = new Control_Execute();
             while(this.control_Execute == null) { } //wait.
             System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Execute");//SIMULATION
         }
@@ -32,16 +32,16 @@ namespace FLORANCE_DevelopersTemplete
   
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public void td_Concurreny(Dynamic_XxxxxxXxxxxxx obj)
+        public void thread_Concurreny(Dynamic_XxxxxxXxxxxxx obj, int coreId)
         {
-            //int coreId = obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore();
-            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) != false) { } //wait.
+            //obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
+            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) != false) {/* wait untill thread initialised */}
             //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) == false) 
             {
                 // TODO>
             }
         }
-        public void td_IO_Loader_Simulation(Dynamic_XxxxxxXxxxxxx obj)
+        public void thread_IO_Loader_Simulation(Dynamic_XxxxxxXxxxxxx obj, int coreId)
         {
             while(true)
             {
@@ -83,8 +83,8 @@ namespace FLORANCE_DevelopersTemplete
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        // TIER CHARLIE (Top - 2) :: Control/Execute
-    private Control_Execute control_Execute = new Control_Execute();
+        // TIER CHARLIE (Top - 2) :: Static_XxxxxxXxxxxx/Control/Execute
+    private Control_Execute control_Execute;
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
