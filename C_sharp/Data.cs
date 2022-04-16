@@ -51,10 +51,14 @@ namespace FLORANCE_DevelopersTemplete
             System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_PreMadeEmptyInputPraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Input/Stack_InputPraise
-            this.data_Input_Stack_InputPraise = new FLORANCE_DevelopersTemplete.Data_Input();
+            this.data_Input_Stack_InputPraise = new FLORANCE_DevelopersTemplete.Data_Input[1];
             while(this.data_Input_Stack_InputPraise == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_Stack_InputPraise");//SIMULATION
-
+            for(int index=0; index < this.data_Input_Stack_InputPraise.Length; index++)
+            {
+                this.data_Input_Stack_InputPraise[index] = new FLORANCE_DevelopersTemplete.Data_Input();
+                while(this.data_Input_Stack_InputPraise[index] == null) { } //wait.
+                System.Console.WriteLine(">> >> >> Field CREATED : Static_XxxxxxXxxxxxx/data_Input_Stack_InputPraise[" + index + "]");//SIMULATION
+            }
 
         // TIER CHARLIE (Top - 2) :: Data/Ouput
             // TIER DELTA (Top - 3) :: Control/Data/Output
@@ -83,10 +87,15 @@ namespace FLORANCE_DevelopersTemplete
             System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_PreMadeEmptyOutputPraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Output/Stack_OutputPraise
-            this.data_Output_Stack_OutputPraise = new FLORANCE_DevelopersTemplete.Data_Output();
+            this.data_Output_Stack_OutputPraise = new FLORANCE_DevelopersTemplete.Data_Output[1];
             while(this.data_Output_Stack_OutputPraise == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_Stack_OutputPraise");//SIMULATION
-
+            for(int index=0; index < this.data_Output_Stack_OutputPraise.Length; index++)
+            {
+                this.data_Output_Stack_OutputPraise[index] = new FLORANCE_DevelopersTemplete.Data_Output();
+                while(this.data_Output_Stack_OutputPraise[index] == null) { } //wait.
+                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxxx/data_Output_Stack_OutputPraise[" + index + "]");//SIMULATION
+            }
+            
         // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
             this.data_Reconnaissance = new FLORANCE_DevelopersTemplete.Data_Reconnaissance();
             while(this.data_Reconnaissance == null) { } //wait.
@@ -134,7 +143,7 @@ namespace FLORANCE_DevelopersTemplete
             return this.data_Input_PreMadeEmptyInputPraiseBuffer;
         }
             // TIER DELTA (Top - 3) :: Data/Input/Stack_InputPraise
-        public Data_Input getInstance_Data_Input_Stack_InputPraise()
+        public Data_Input[] getInstance_Data_Input_Stack_InputPraise()
         {
             return this.data_Input_Stack_InputPraise;
         }
@@ -166,7 +175,7 @@ namespace FLORANCE_DevelopersTemplete
             return this.data_Output_PreMadeEmptyOutputPraiseBuffer;
         }
             // TIER DELTA (Top - 3) :: Data/Output/Stack_OutputPraise
-        public Data_Output getInstance_Data_Output_Stack_OutputPraise()
+        public Data_Output[] getInstance_Data_Output_Stack_OutputPraise()
         {
             return this.data_Output_Stack_OutputPraise;
         }
@@ -227,7 +236,7 @@ namespace FLORANCE_DevelopersTemplete
             private Data_Input data_Input_PreMadeEmptyInputPraiseBuffer;        
 
             // TIER DELTA (Top - 3) :: Data/Input/Stack_InputPraise
-            private Data_Input data_Input_Stack_InputPraise;
+            private Data_Input[] data_Input_Stack_InputPraise;
 
         // TIER CHARLIE (Top - 2) :: Data/Ouput
 		    private Data_Output data_Output;
@@ -244,7 +253,7 @@ namespace FLORANCE_DevelopersTemplete
             private Data_Output data_Output_PreMadeEmptyOutputPraiseBuffer;
 
             // TIER DELTA (Top - 3) :: Data/Output/Stack_OutputPraise
-            private Data_Output data_Output_Stack_OutputPraise;
+            private Data_Output[] data_Output_Stack_OutputPraise;
 
         // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
             private Data_Reconnaissance data_Reconnaissance;

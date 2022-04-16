@@ -18,10 +18,10 @@ namespace FLORANCE_DevelopersTemplete
 
 //	CONSTRUCTOR ******************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public Execute()
+        public Execute(int num_implemented_cores)
         {
         // TIER CHARLIE (Top - 2) :: Control/Execute
-            this.control_Execute = new Control_Execute();
+            this.control_Execute = new FLORANCE_DevelopersTemplete.Control_Execute(num_implemented_cores);
             while(this.control_Execute == null) { } //wait.
             System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Execute");//SIMULATION
         }
@@ -32,22 +32,42 @@ namespace FLORANCE_DevelopersTemplete
   
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public void thread_Concurreny(Dynamic_XxxxxxXxxxxxx obj, int coreId)
+        public void thread_Concurrency(Dynamic_XxxxxxXxxxxxx obj, int coreId)
         {
-            //obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
-            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) != false) {/* wait untill thread initialised */}
-            //while(obj.getInstance_Control_Execute().getFlag_ThreadsConditionCodeSet(coreId) == false) 
+            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxxx/Execute/thread_Concurrency");//SIMULATION
+            obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
+            while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) != false) {/* wait untill thread initalised */}
+            while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) == false) 
             {
                 // TODO>
             }
         }
-        public void thread_IO_Loader_Simulation(Dynamic_XxxxxxXxxxxxx obj, int coreId)
+        public void thread_IO_ListenDistribute(Dynamic_XxxxxxXxxxxxx obj, int coreId)
         {
-            while(true)
-            {
+            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxxx/Execute/thread_IO_ListenDistribute");//SIMULATION
+            obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
+            while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) != false) {/* wait untill thread initalised */}
 
+            System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
+            System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
+            System.Console.WriteLine("      /   \\   (_\\  /_)    /   \\ ");//SIMULATION
+            System.Console.WriteLine("____ / ____\\__ \\@  @/ ___/_____\\_____");//SIMULATION
+            System.Console.WriteLine("|              |\\../|               |");//SIMULATION
+            System.Console.WriteLine("|               \\VV/                |");//SIMULATION
+            System.Console.WriteLine("|             FLORANCE              |");//SIMULATION
+            System.Console.WriteLine("|        DEVELOPERS TEMPLATE        |");//SIMULATION
+            System.Console.WriteLine("|___________________________________|");//SIMULATION
+            System.Console.WriteLine("|    / \\ /        \\\\        \\ /\\    |");//SIMULATION
+            System.Console.WriteLine("|  /    V          ))        V   \\  |");//SIMULATION
+            System.Console.WriteLine("|/                //               \\| ");//SIMULATION
+            System.Console.WriteLine("`                 V                 '");//SIMULATION
+
+            while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) == false) 
+            {
+                // TODO>
             }
         }
+
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
         // TIER CHARLIE (Top - 2) :: Control/Execute
             public Control_Execute getInstance_Control_Execute()

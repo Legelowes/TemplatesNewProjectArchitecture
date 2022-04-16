@@ -29,16 +29,6 @@ namespace FLORANCE_DevelopersTemplete
             System.Console.WriteLine("DECLARATION of Dynamic Architecture COMPLETE");//SIMULATION
             System.Console.WriteLine("INSTANCIATION of Dynamic Architecture COMPLETE");//SIMULATION
             System.Console.WriteLine("LAUNCH of CONCURRENT Dynamic Architecture COMPLETE");//SIMULATION
-
-            System.Console.WriteLine("SIMULATION TESTBECH>START ****************************************************************************************************************************");//SIMULATION
-            // TODO TESTBECH WORKLOAD
-            /* 
-            *
-            */
-            System.Console.WriteLine("SIMULATION TESTBECH>END ******************************************************************************************************************************");//SIMULATION
-            
-            Program.systemOnAChip.stop_DynamicFramework_Server_Backend();
-            System.Console.WriteLine("<< << << EXITING : Program/Main");//SIMULATION
         }
 
 	//	GET & SET ----------------------------------------------------------------------------------------------------------------------------------------

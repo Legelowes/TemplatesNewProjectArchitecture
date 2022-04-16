@@ -552,9 +552,22 @@ namespace FLORANCE_DevelopersTemplete
 
 //	CONSTRUCTOR ******************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public Control_Execute()
+        public Control_Execute(int num_implemented_cores)
         {
-
+            this.thread_CoreId = new int[num_implemented_cores];
+            while(this.thread_CoreId == null) {/* wait untill field created */}
+            for(int coreId = 0; coreId < this.thread_CoreId.Length; coreId++) 
+            {
+                this.thread_CoreId[coreId] = coreId;
+                System.Console.WriteLine(">> >> >> Field CREATED : Static_XxxxxxXxxxxxx/Control_Execute/thread_CoreId[" + coreId + "]");//SIMULATION
+            }
+            this.thread_Initialised = new bool[num_implemented_cores];
+            while(this.thread_Initialised == null) {/* wait untill field created */}
+            for(int coreId = 0; coreId < num_implemented_cores; coreId++) 
+            {
+                this.thread_Initialised[coreId] = true;
+                System.Console.WriteLine(">> >> >> Field CREATED : Static_XxxxxxXxxxxxx/Control_Execute/thread_Initialised[" + coreId + "]");//SIMULATION
+            }
         }
         ~Control_Execute()
         {
@@ -566,7 +579,18 @@ namespace FLORANCE_DevelopersTemplete
 
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
+    // GET    
+        public bool getFlag_ThreadInitialised(int coreId)
+        {
+            return thread_Initialised[coreId];
+        }
 
+    // SET
+        public void setConditionCodeOfThisThreadedCore(int coreId)
+        {
+            this.setThread_coreId(coreId);
+            this.setFlag_ThradInitialised(coreId, false); 
+        }
 
 
 //	PROTECTED ============================================================================================================================================
@@ -596,12 +620,26 @@ namespace FLORANCE_DevelopersTemplete
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-
+        private int[] thread_CoreId;
+        private bool[] thread_Initialised;
+  
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-
+    // GET
+  
+    // SET
+        private void setThread_coreId(int coreId)
+        {
+            this.thread_CoreId[coreId] = coreId;
+            System.Console.WriteLine(">> >> >> SET Field Value : Static_XxxxxxXxxxxxx/Control_Execute/thread_CoreId[" + coreId + "] = " + coreId);//SIMULATION
+        }
+        private void setFlag_ThradInitialised(int coreId, bool value)
+        {
+            this.thread_Initialised[coreId] = value;
+            System.Console.WriteLine(">> >> >> SET Field Value : Static_XxxxxxXxxxxxx/Control_Execute/thread_Initialised[" + coreId + "] = " + value);//SIMULATION
+        }
     }
 }
 //End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

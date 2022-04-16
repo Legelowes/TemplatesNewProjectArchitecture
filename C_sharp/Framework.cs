@@ -150,7 +150,7 @@ namespace FLORANCE_DevelopersTemplete
             // TIER DELTA (Top - 3) :: Static_XxxxxxXxxxxx/Control/Data/Reconniassance
 
     // TIER BRAVO (Top - 1) :: Static_XxxxxxXxxxxx/Execute
-            this.execute = new FLORANCE_DevelopersTemplete.Execute();
+            this.execute = new FLORANCE_DevelopersTemplete.Execute(num_implemented_cores);
             while(this.execute == null) { } //wait.
             System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/execute");//SIMULATION
         // TIER CHARLIE (Top - 2) :: Static_XxxxxxXxxxxx/Control/Execute
@@ -249,7 +249,7 @@ namespace FLORANCE_DevelopersTemplete
         }
 
             // TIER DELTA (Top - 3) :: Static_XxxxxxXxxxxx/Data/Input/Stack_InputPraise
-        public Data_Input getInstance_Data_Input_Stack_InputPraise()
+        public Data_Input[] getInstance_Data_Input_Stack_InputPraise()
         {
             return this.getInstance_Data().getInstance_Data_Input_Stack_InputPraise();
         }
@@ -280,7 +280,7 @@ namespace FLORANCE_DevelopersTemplete
             return this.getInstance_Data().getInstance_Data_Output_PreMadeEmptyOutputPraiseBuffer();
         } 
             // TIER DELTA (Top - 3) :: Static_XxxxxxXxxxxx/Data/Output/Stack_OutputPraise
-        public Data_Output getInstance_Data_Output_Stack_OutputPraise()
+        public Data_Output[] getInstance_Data_Output_Stack_OutputPraise()
         {
             return this.getInstance_Data().getInstance_Data_Output_Stack_OutputPraise();
         }
@@ -446,31 +446,23 @@ namespace FLORANCE_DevelopersTemplete
 		
 // HREADED CORES
             this.thread_WithCoreId = new System.Threading.Thread[num_implemented_cores];
-			for(int coreId = 0; coreId < num_implemented_cores; coreId++) 
-            {
-                if(coreId == 0) this.thread_WithCoreId[coreId] = new System.Threading.Thread(()=>static_obj.getInstance_Execute().thread_IO_Loader_Simulation(this, coreId));
-                else if(coreId > 0) this.thread_WithCoreId[coreId] = new System.Threading.Thread(()=>static_obj.getInstance_Execute().thread_Concurreny(this, coreId));
-            }
-			System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
-			System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
-			System.Console.WriteLine("      /   \\   (_\\  /_)    /   \\ ");//SIMULATION
-			System.Console.WriteLine("____ / ____\\__ \\@  @/ ___/_____\\_____");//SIMULATION
-			System.Console.WriteLine("|              |\\../|               |");//SIMULATION
-			System.Console.WriteLine("|               \\VV/                |");//SIMULATION
-			System.Console.WriteLine("|             FLORANCE              |");//SIMULATION
-			System.Console.WriteLine("|        DEVELOPERS TEMPLATE        |");//SIMULATION
-			System.Console.WriteLine("|___________________________________|");//SIMULATION
-			System.Console.WriteLine("|    / \\ /        \\\\        \\ /\\    |");//SIMULATION
-			System.Console.WriteLine("|  /    V          ))        V   \\  |");//SIMULATION
-			System.Console.WriteLine("|/                //               \\| ");//SIMULATION
-			System.Console.WriteLine("`                 V                 '");//SIMULATION
+            while(this.thread_WithCoreId == null) {/* wait untill field created */}
 
-            for(int index = 0; index < num_implemented_cores; index++) 
+            for(int coreId = 1; coreId < this.thread_WithCoreId.Length; coreId++) 
             {
-                this.thread_WithCoreId[index].Start();
+                this.thread_WithCoreId[coreId] = new System.Threading.Thread(()=>this.getInstance_Execute().thread_Concurrency(this, coreId));
+                while(this.thread_WithCoreId[coreId] == null) {/* wait untill field created */}
+                this.thread_WithCoreId[coreId].Start();
+                while(this.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) != false) {/* wait untill thread initialised */}   
             }
 
-		}
+            this.thread_WithCoreId[0] = new System.Threading.Thread(()=>this.getInstance_Execute().thread_IO_ListenDistribute(this, 0));
+            while(this.thread_WithCoreId[0] == null) {/* wait untill field created */}
+            System.Threading.Thread CurrentThread = this.thread_WithCoreId[0];
+            CurrentThread.Start();
+            while(this.getInstance_Control_Execute().getFlag_ThreadInitialised(0) != false) {/* wait untill thread initialised */}
+        }
+
         ~Dynamic_XxxxxxXxxxxxx()
         {
 // INSTANCE(S)
@@ -527,6 +519,8 @@ namespace FLORANCE_DevelopersTemplete
 
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
+// THREADED CORES
+        public static System.Threading.Thread CurrentThread { get; }
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
 // INSTANCE(S)
