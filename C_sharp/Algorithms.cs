@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Algorithms : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORANCE_DevelopersTemplete
+namespace FLORENCE_DevelopersTemplete
 {
     public class Algorithms
     {
@@ -21,23 +21,23 @@ namespace FLORANCE_DevelopersTemplete
         public Algorithms(int num_implemented_cores)
         {
         // TIER CHARLIE (Top - 2) :: Control/Algorithms
-            this.control_Algorithms = new FLORANCE_DevelopersTemplete.Control_Algorithms();
+            this.control_Algorithms = new FLORENCE_DevelopersTemplete.Control_Algorithms();
             while(this.control_Algorithms == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Algorithms");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Algorithms");//SIMULATION
         // TIER CHARLIE (Top - 2) :: Algorithms/Concurrent
-            this.algorithms_Concurrent = new FLORANCE_DevelopersTemplete.Algorithms_Concurrent[num_implemented_cores-1];
+            this.algorithms_Concurrent = new FLORENCE_DevelopersTemplete.Algorithms_Concurrent[num_implemented_cores-1];
             while(this.algorithms_Concurrent == null) { } //wait.
             for(int index=0; index < num_implemented_cores-1; index++)
             {
-                this.algorithms_Concurrent[index] = new FLORANCE_DevelopersTemplete.Algorithms_Concurrent();
+                this.algorithms_Concurrent[index] = new FLORENCE_DevelopersTemplete.Algorithms_Concurrent();
                 while(this.algorithms_Concurrent[index] == null) { } //wait.
-                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/algorithms_Concurrent[" + index + "]");//SIMULATION
+                System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/algorithms_Concurrent[" + index + "]");//SIMULATION
             }
             // TIER DELTA (Top - 3) :: Control/Algorithms/Concurrent
         // TIER CHARLIE (Top - 2) :: Algorithms/ListenRespond
-            this.algorithms_ListenRespond = new FLORANCE_DevelopersTemplete.Algorithms_ListenRespond();
+            this.algorithms_ListenRespond = new FLORENCE_DevelopersTemplete.Algorithms_ListenRespond();
             while(this.algorithms_ListenRespond == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/algorithms_ListenRespond");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/algorithms_ListenRespond");//SIMULATION
             // TIER DELTA (Top - 3) :: Control/Algorithms/ListenRespond
         }
         ~Algorithms()
@@ -127,9 +127,9 @@ namespace FLORANCE_DevelopersTemplete
         public Algorithms_Concurrent()
         {
             // TIER DELTA (Top - 3) :: Control/Algorithms/Concurrent
-            this.control_Algorithms_Concurrent = new FLORANCE_DevelopersTemplete.Control_Algorithms_Concurrent();
+            this.control_Algorithms_Concurrent = new FLORENCE_DevelopersTemplete.Control_Algorithms_Concurrent();
             while(this.control_Algorithms_Concurrent == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Algorithms_Concurrent");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Algorithms_Concurrent");//SIMULATION
         }
         ~Algorithms_Concurrent()
         {
@@ -203,9 +203,9 @@ namespace FLORANCE_DevelopersTemplete
         public Algorithms_ListenRespond()
         {
             // TIER DELTA (Top - 3) :: Control/Algorithms/ListenRespond
-            this.control_Algorithms_ListenRespond = new FLORANCE_DevelopersTemplete.Control_Algorithms_ListenRespond();
+            this.control_Algorithms_ListenRespond = new FLORENCE_DevelopersTemplete.Control_Algorithms_ListenRespond();
             while(this.control_Algorithms_ListenRespond == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Algorithms_ListenRespond");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Algorithms_ListenRespond");//SIMULATION
         }
         ~Algorithms_ListenRespond()
         {

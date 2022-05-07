@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Data : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORANCE_DevelopersTemplete
+namespace FLORENCE_DevelopersTemplete
 {
     public class Data
     {
@@ -20,86 +20,86 @@ namespace FLORANCE_DevelopersTemplete
 // 	******************************************************************************************************************************************************
         public Data(int num_implemented_cores)        {
         // TIER CHARLIE (Top - 2) :: Control/Data
-            this.control_Data = new FLORANCE_DevelopersTemplete.Control_Data();
+            this.control_Data = new FLORENCE_DevelopersTemplete.Control_Data();
             while(this.control_Data == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Data");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Data");//SIMULATION
 
         // TIER CHARLIE (Top - 2) :: Data/Input
             // TIER DELTA (Top - 3) :: Control/Data/Input
-            this.control_Data_Input = new FLORANCE_DevelopersTemplete.Control_Data_Input();
+            this.control_Data_Input = new FLORENCE_DevelopersTemplete.Control_Data_Input();
             while(this.control_Data_Input == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Data_Input");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Data_Input");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Input/Concurrent_InputRefferenceOfCore
-            this.data_Input_Concurrent_InputRefferenceOfCore = new FLORANCE_DevelopersTemplete.Data_Input[num_implemented_cores-1];
+            this.data_Input_Concurrent_InputRefferenceOfCore = new FLORENCE_DevelopersTemplete.Data_Input[num_implemented_cores-1];
             while(this.data_Input_Concurrent_InputRefferenceOfCore == null) { } //wait.
             for(int index=0; index < num_implemented_cores-1; index++)
             {
-                this.data_Input_Concurrent_InputRefferenceOfCore[index] = new FLORANCE_DevelopersTemplete.Data_Input();
+                this.data_Input_Concurrent_InputRefferenceOfCore[index] = new FLORENCE_DevelopersTemplete.Data_Input();
                 while(this.data_Input_Concurrent_InputRefferenceOfCore[index] == null) { } //wait.
-                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_Concurrent_InputRefferenceOfCore[" + index + "]");//SIMULATION
+                System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Input_Concurrent_InputRefferenceOfCore[" + index + "]");//SIMULATION
             }
 
             // TIER DELTA (Top - 3) :: Data/Input/PraiseBuffer
-            this.data_Input_PraiseBuffer = new FLORANCE_DevelopersTemplete.Data_Input();
+            this.data_Input_PraiseBuffer = new FLORENCE_DevelopersTemplete.Data_Input();
             while(this.data_Input_PraiseBuffer == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_PraiseBuffer");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Input_PraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Input/PreMadeEmptyInputPraiseBuffer
-            this.data_Input_PreMadeEmptyInputPraiseBuffer = new FLORANCE_DevelopersTemplete.Data_Input();
+            this.data_Input_PreMadeEmptyInputPraiseBuffer = new FLORENCE_DevelopersTemplete.Data_Input();
             while(this.data_Input_PreMadeEmptyInputPraiseBuffer == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Input_PreMadeEmptyInputPraiseBuffer");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Input_PreMadeEmptyInputPraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Input/Stack_InputPraise
-            this.data_Input_Stack_InputPraise = new FLORANCE_DevelopersTemplete.Data_Input[1];
+            this.data_Input_Stack_InputPraise = new FLORENCE_DevelopersTemplete.Data_Input[1];
             while(this.data_Input_Stack_InputPraise == null) { } //wait.
             for(int index=0; index < this.data_Input_Stack_InputPraise.Length; index++)
             {
-                this.data_Input_Stack_InputPraise[index] = new FLORANCE_DevelopersTemplete.Data_Input();
+                this.data_Input_Stack_InputPraise[index] = new FLORENCE_DevelopersTemplete.Data_Input();
                 while(this.data_Input_Stack_InputPraise[index] == null) { } //wait.
                 System.Console.WriteLine(">> >> >> Field CREATED : Static_XxxxxxXxxxxxx/data_Input_Stack_InputPraise[" + index + "]");//SIMULATION
             }
 
         // TIER CHARLIE (Top - 2) :: Data/Ouput
             // TIER DELTA (Top - 3) :: Control/Data/Output
-            this.control_Data_Output = new FLORANCE_DevelopersTemplete.Control_Data_Output();
+            this.control_Data_Output = new FLORENCE_DevelopersTemplete.Control_Data_Output();
             while(this.control_Data_Output == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Data_Output");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Data_Output");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Output/Concurrent_OutputRefferenceOfCore
-            this.data_Output_Concurrent_OutputRefferenceOfCore = new FLORANCE_DevelopersTemplete.Data_Output[num_implemented_cores-1];
+            this.data_Output_Concurrent_OutputRefferenceOfCore = new FLORENCE_DevelopersTemplete.Data_Output[num_implemented_cores-1];
             while(this.data_Output_Concurrent_OutputRefferenceOfCore == null) { } //wait.
             for(int index=0; index < num_implemented_cores-1; index++)
             {
-                this.data_Output_Concurrent_OutputRefferenceOfCore[index] = new FLORANCE_DevelopersTemplete.Data_Output();
+                this.data_Output_Concurrent_OutputRefferenceOfCore[index] = new FLORENCE_DevelopersTemplete.Data_Output();
                 while(this.data_Output_Concurrent_OutputRefferenceOfCore[index] == null) { } //wait.
-                System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_Concurrent_OutputRefferenceOfCore[" + index + "]");//SIMULATION
+                System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Output_Concurrent_OutputRefferenceOfCore[" + index + "]");//SIMULATION
             }
 
             // TIER DELTA (Top - 3) :: Data/Output/PraiseBuffer
-            this.data_Output_PraiseBuffer = new FLORANCE_DevelopersTemplete.Data_Output();
+            this.data_Output_PraiseBuffer = new FLORENCE_DevelopersTemplete.Data_Output();
             while(this.data_Output_PraiseBuffer == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_PraiseBuffer");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Output_PraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Output/PreMadeEmptyOutputPraiseBuffer
-            this.data_Output_PreMadeEmptyOutputPraiseBuffer = new FLORANCE_DevelopersTemplete.Data_Output();
+            this.data_Output_PreMadeEmptyOutputPraiseBuffer = new FLORENCE_DevelopersTemplete.Data_Output();
             while(this.data_Output_PreMadeEmptyOutputPraiseBuffer == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Output_PreMadeEmptyOutputPraiseBuffer");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Output_PreMadeEmptyOutputPraiseBuffer");//SIMULATION
 
             // TIER DELTA (Top - 3) :: Data/Output/Stack_OutputPraise
-            this.data_Output_Stack_OutputPraise = new FLORANCE_DevelopersTemplete.Data_Output[1];
+            this.data_Output_Stack_OutputPraise = new FLORENCE_DevelopersTemplete.Data_Output[1];
             while(this.data_Output_Stack_OutputPraise == null) { } //wait.
             for(int index=0; index < this.data_Output_Stack_OutputPraise.Length; index++)
             {
-                this.data_Output_Stack_OutputPraise[index] = new FLORANCE_DevelopersTemplete.Data_Output();
+                this.data_Output_Stack_OutputPraise[index] = new FLORENCE_DevelopersTemplete.Data_Output();
                 while(this.data_Output_Stack_OutputPraise[index] == null) { } //wait.
                 System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxxx/data_Output_Stack_OutputPraise[" + index + "]");//SIMULATION
             }
             
         // TIER CHARLIE (Top - 2) :: Data/Reconnaissance
-            this.data_Reconnaissance = new FLORANCE_DevelopersTemplete.Data_Reconnaissance();
+            this.data_Reconnaissance = new FLORENCE_DevelopersTemplete.Data_Reconnaissance();
             while(this.data_Reconnaissance == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/data_Reconnaissance");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/data_Reconnaissance");//SIMULATION
             // TIER DELTA (Top - 3) :: Control/Data/Reconniassance
         }
         ~Data()
@@ -112,12 +112,12 @@ namespace FLORANCE_DevelopersTemplete
 // 	******************************************************************************************************************************************************
 
 //	GET & SET --------------------------------------------------------------------------------------------------------------------------------------------
-        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxxx/Control/Data
+        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxx/Control/Data
         public Control_Data getInstance_Control_Data()
         {
             return this.control_Data;
         }
-        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxxx/Data/Input
+        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxx/Data/Input
         public Data_Input getInstance_Data_Input()
         {
             return this.data_Input;
@@ -148,7 +148,7 @@ namespace FLORANCE_DevelopersTemplete
             return this.data_Input_Stack_InputPraise;
         }
         
-        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxxx/Data/Output
+        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxx/Data/Output
         public Data_Output getInstance_Data_Output()
         {
             return this.data_Output;
@@ -179,12 +179,12 @@ namespace FLORANCE_DevelopersTemplete
         {
             return this.data_Output_Stack_OutputPraise;
         }
-        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxxx/Data/Reconnaissance
+        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxx/Data/Reconnaissance
         public Data_Reconnaissance getInstance_Data_Reconnaissace()
         {
             return this.data_Reconnaissance;
         }
-            // TIER DELTA (Top - 3) :: Dynamic_XxxxxxXxxxxxx/Control/Data/Reconniassance
+            // TIER DELTA (Top - 3) :: Dynamic_XxxxxxXxxxxx/Control/Data/Reconniassance
         public Control_Data_Reconnaissance getInstance_Control_Data_Reconnaissace()
         {
             return this.getInstance_Data_Reconnaissace().getInstance_Control_Data_Reconnaissance();
@@ -415,9 +415,9 @@ namespace FLORANCE_DevelopersTemplete
         public Data_Reconnaissance()
         {
             // TIER DELTA (Top - 3) :: Control/Data/Input
-            this.control_Data_Reconnaissance = new FLORANCE_DevelopersTemplete.Control_Data_Reconnaissance();
+            this.control_Data_Reconnaissance = new FLORENCE_DevelopersTemplete.Control_Data_Reconnaissance();
             while(this.control_Data_Reconnaissance == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Data_Reconnaissance");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Data_Reconnaissance");//SIMULATION
         }
         ~Data_Reconnaissance()
         {

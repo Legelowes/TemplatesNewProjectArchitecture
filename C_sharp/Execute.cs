@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Execute : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORANCE_DevelopersTemplete
+namespace FLORENCE_DevelopersTemplete
 {
     public class Execute
     {
@@ -21,9 +21,9 @@ namespace FLORANCE_DevelopersTemplete
         public Execute(int num_implemented_cores)
         {
         // TIER CHARLIE (Top - 2) :: Control/Execute
-            this.control_Execute = new FLORANCE_DevelopersTemplete.Control_Execute(num_implemented_cores);
+            this.control_Execute = new FLORENCE_DevelopersTemplete.Control_Execute(num_implemented_cores);
             while(this.control_Execute == null) { } //wait.
-            System.Console.WriteLine(">> >> >> Object CREATED : Static_XxxxxxXxxxxx/control_Execute");//SIMULATION
+            System.Console.WriteLine(">> >> >> Object CREATED : Dynamic_XxxxxxXxxxxx/control_Execute");//SIMULATION
         }
         ~Execute()
         {
@@ -32,9 +32,9 @@ namespace FLORANCE_DevelopersTemplete
   
 //	METHODS **********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        public void thread_Concurrency(Dynamic_XxxxxxXxxxxxx obj, int coreId)
+        public void thread_Concurrency(Dynamic_XxxxxxXxxxxx obj, int coreId)
         {
-            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxxx/Execute/thread_Concurrency");//SIMULATION
+            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxx/Execute/thread_Concurrency");//SIMULATION
             obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
             while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) != false) {/* wait untill thread initalised */}
             while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) == false) 
@@ -42,11 +42,17 @@ namespace FLORANCE_DevelopersTemplete
                 // TODO>
             }
         }
-        public void thread_IO_ListenDistribute(Dynamic_XxxxxxXxxxxxx obj, int coreId)
+        public void thread_IO_ListenDistribute(Dynamic_XxxxxxXxxxxx obj, int coreId)
         {
-            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxxx/Execute/thread_IO_ListenDistribute");//SIMULATION
+            System.Console.WriteLine(">> >> >> Thread STARTED : Dynamic_XxxxxxXxxxxx/Execute/thread_IO_ListenDistribute");//SIMULATION
             obj.getInstance_Control_Execute().setConditionCodeOfThisThreadedCore(coreId);
             while(obj.getInstance_Control_Execute().getFlag_ThreadInitialised(coreId) != false) {/* wait untill thread initalised */}
+
+            System.Console.WriteLine("DEFINTITION of Static Script COMPLETE");//SIMULATION            
+            System.Console.WriteLine("INITALISATION of Static Instances COMPLETE");//SIMULATION
+            System.Console.WriteLine("DECLARATION of Dynamic Architecture COMPLETE");//SIMULATION
+            System.Console.WriteLine("INSTANCIATION of Dynamic Architecture COMPLETE");//SIMULATION
+            System.Console.WriteLine("LAUNCH of CONCURRENT Dynamic Architecture COMPLETE");//SIMULATION
 
             System.Console.WriteLine("        ,     \\      /      ,");//SIMULATION
             System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");//SIMULATION
@@ -103,7 +109,7 @@ namespace FLORANCE_DevelopersTemplete
 
 //	REGISTERS ********************************************************************************************************************************************
 // 	******************************************************************************************************************************************************
-        // TIER CHARLIE (Top - 2) :: Static_XxxxxxXxxxxx/Control/Execute
+        // TIER CHARLIE (Top - 2) :: Dynamic_XxxxxxXxxxxx/Control/Execute
     private Control_Execute control_Execute;
 
 //	METHODS **********************************************************************************************************************************************

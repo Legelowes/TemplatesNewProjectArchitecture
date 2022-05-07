@@ -1,7 +1,7 @@
 ﻿//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Program - Main : Framework - EXECUTE First : Script File.cs
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-namespace FLORANCE_DevelopersTemplete   
+namespace FLORENCE_DevelopersTemplete   
 {
     class Program 
     {         
@@ -23,12 +23,7 @@ namespace FLORANCE_DevelopersTemplete
         {
             System.Console.WriteLine(">> >> >> ENTERED : Program/Main");//SIMULATION
             System.Console.WriteLine("******************************************************************************************************************************************************");//SIMULATION
-            Program.systemOnAChip = new Framework(2);//int num_implemented_cores
-            System.Console.WriteLine("DEFINTITION of Static Script COMPLETE");//SIMULATION            
-            System.Console.WriteLine("INITALISATION of Static Instances COMPLETE");//SIMULATION
-            System.Console.WriteLine("DECLARATION of Dynamic Architecture COMPLETE");//SIMULATION
-            System.Console.WriteLine("INSTANCIATION of Dynamic Architecture COMPLETE");//SIMULATION
-            System.Console.WriteLine("LAUNCH of CONCURRENT Dynamic Architecture COMPLETE");//SIMULATION
+            Program.systemOnAChip = new FLORENCE_DevelopersTemplete.Framework(2);//int num_implemented_cores
         }
 
 	//	GET & SET ----------------------------------------------------------------------------------------------------------------------------------------
